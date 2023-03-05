@@ -1,0 +1,674 @@
+Using username "hadoop".
+Authenticating with public key "imported-openssh-key"
+Last login: Sun Mar  5 03:18:51 2023
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+1 package(s) needed for security, out of 8 available
+Run "sudo yum update" to apply all updates.
+
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+
+[hadoop@ip-172-31-61-54 ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j2.                                                                                                             properties Async: false
+hive> show tables;
+OK
+delay_flights
+Time taken: 1.172 seconds, Fetched: 1 row(s)
+hive> SELECT Year, avg((CarrierDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year
+    > ;
+Query ID = hadoop_20230305033303_97ca019d-4784-4e8d-89f4-e722bcc979f3
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    24.557549755575373
+2007    19.850007017971283
+2009    28.33058554239575
+2010    21.89310246015957
+2004    43.64459443230066
+2005    28.01977637202288
+2006    30.453296261292596
+2008    28.88346981456985
+Time taken: 15.147 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((CarrierDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033330_717c692f-1dd9-4033-a71b-f634216ed52b
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    24.557549755575373
+2007    19.850007017971283
+2009    28.33058554239575
+2010    21.89310246015957
+2004    43.64459443230066
+2005    28.01977637202288
+2006    30.453296261292596
+2008    28.88346981456985
+Time taken: 8.908 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((CarrierDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033342_49b5c6aa-f9e3-4fb1-a21a-96749dec4f27
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    24.557549755575373
+2007    19.850007017971283
+2009    28.33058554239575
+2010    21.89310246015957
+2004    43.64459443230066
+2005    28.01977637202288
+2006    30.453296261292596
+2008    28.88346981456985
+Time taken: 1.431 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((CarrierDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033347_d0a323cd-9a3e-42e3-9d89-dd57e6bac5b7
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    24.557549755575373
+2007    19.850007017971283
+2009    28.33058554239575
+2010    21.89310246015957
+2004    43.64459443230066
+2005    28.01977637202288
+2006    30.453296261292596
+2008    28.88346981456985
+Time taken: 1.029 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((CarrierDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033351_7207daa3-bb09-41e4-9998-4f04fd828aae
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 1/1      Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    24.557549755575373
+2007    19.850007017971283
+2009    28.33058554239575
+2010    21.89310246015957
+2004    43.64459443230066
+2005    28.01977637202288
+2006    30.453296261292596
+2008    28.88346981456985
+Time taken: 0.983 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((NASDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year                                                                                                 < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033441_ea2d91b2-5b10-4756-9255-215dcafda279
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    29.686276314267346
+2007    30.625925917941924
+2009    37.63093330628511
+2010    33.87351363404217
+2004    18.24570061769958
+2005    16.63868805373129
+2006    18.119312329937703
+2008    30.16552562594132
+Time taken: 8.155 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((NASDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year                                                                                                 < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033451_62dce556-6eac-42c9-81e9-050868a30d29
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    29.686276314267346
+2007    30.625925917941924
+2009    37.63093330628511
+2010    33.87351363404217
+2004    18.24570061769958
+2005    16.63868805373129
+2006    18.119312329937703
+2008    30.16552562594132
+Time taken: 1.192 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((NASDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year                                                                                                 < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033456_ce5e00a9-e71e-4890-8520-14a6911a2917
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 1/1      Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    29.686276314267346
+2007    30.625925917941924
+2009    37.63093330628511
+2010    33.87351363404217
+2004    18.24570061769958
+2005    16.63868805373129
+2006    18.119312329937703
+2008    30.16552562594132
+Time taken: 0.944 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((NASDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year                                                                                                 < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033459_9209ae27-8bab-4f29-8040-a5cbcb5ad351
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    29.686276314267346
+2007    30.625925917941924
+2009    37.63093330628511
+2010    33.87351363404217
+2004    18.24570061769958
+2005    16.63868805373129
+2006    18.119312329937703
+2008    30.16552562594132
+Time taken: 1.115 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((NASDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year                                                                                                 < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033502_f2220326-5026-491e-8e67-8a08f66ea146
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    29.686276314267346
+2007    30.625925917941924
+2009    37.63093330628511
+2010    33.87351363404217
+2004    18.24570061769958
+2005    16.63868805373129
+2006    18.119312329937703
+2008    30.16552562594132
+Time taken: 0.987 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((NASDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year                                                                                                 < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033507_38d3583c-3196-4110-b3c0-86d2364484db
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    29.686276314267346
+2007    30.625925917941924
+2009    37.63093330628511
+2010    33.87351363404217
+2004    18.24570061769958
+2005    16.63868805373129
+2006    18.119312329937703
+2008    30.16552562594132
+Time taken: 0.845 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((WeatherDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033552_c7caba34-ddd1-4902-8771-ed9fadef5569
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    7.8319479664511205
+2007    4.042975783210287
+2009    0.45316615137982363
+2010    2.9023312955584664
+2004    6.4475279976916555
+2005    5.85069715149616
+2006    4.588604183967953
+2008    3.7254490054008955
+Time taken: 7.781 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((WeatherDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033603_f8ad59bb-cd95-49e1-a63b-4812e4cb043a
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    7.8319479664511205
+2007    4.042975783210287
+2009    0.45316615137982363
+2010    2.9023312955584664
+2004    6.4475279976916555
+2005    5.85069715149616
+2006    4.588604183967953
+2008    3.7254490054008955
+Time taken: 1.124 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((WeatherDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033606_5e97c846-62c5-4f5a-afa1-3fc448fc4845
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    7.8319479664511205
+2007    4.042975783210287
+2009    0.45316615137982363
+2010    2.9023312955584664
+2004    6.4475279976916555
+2005    5.85069715149616
+2006    4.588604183967953
+2008    3.7254490054008955
+Time taken: 1.048 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((WeatherDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033609_7a62ddb5-60e9-4267-9e68-43bcbdd44753
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    7.8319479664511205
+2007    4.042975783210287
+2009    0.45316615137982363
+2010    2.9023312955584664
+2004    6.4475279976916555
+2005    5.85069715149616
+2006    4.588604183967953
+2008    3.7254490054008955
+Time taken: 0.821 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((WeatherDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033612_3481e985-3716-4148-96ed-d370f588e2c3
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    7.8319479664511205
+2007    4.042975783210287
+2009    0.45316615137982363
+2010    2.9023312955584664
+2004    6.4475279976916555
+2005    5.85069715149616
+2006    4.588604183967953
+2008    3.7254490054008955
+Time taken: 1.213 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((WeatherDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Y                                                                                                ear < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033614_fc6fa331-06ab-4008-bcda-9a8a073f4e86
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    7.8319479664511205
+2007    4.042975783210287
+2009    0.45316615137982363
+2010    2.9023312955584664
+2004    6.4475279976916555
+2005    5.85069715149616
+2006    4.588604183967953
+2008    3.7254490054008955
+Time taken: 0.826 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((LateAircraftDelay /ArrDelay)*100) from delay_flights where Year>2002                                                                                                 AND Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033659_e071c122-340f-4fa0-aa73-e7f63b8114e3
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    37.924225963706164
+2007    45.252432744291134
+2009    33.585314999939314
+2010    41.331052610239794
+2004    31.662176952308105
+2005    49.490838422749654
+2006    46.838787224801735
+2008    37.22555555408794
+Time taken: 7.462 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((LateAircraftDelay /ArrDelay)*100) from delay_flights where Year>2002                                                                                                 AND Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033710_af7a8201-3654-4463-b725-dd9e8c14ba70
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    37.924225963706164
+2007    45.252432744291134
+2009    33.585314999939314
+2010    41.331052610239794
+2004    31.662176952308105
+2005    49.490838422749654
+2006    46.838787224801735
+2008    37.22555555408794
+Time taken: 1.133 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((LateAircraftDelay /ArrDelay)*100) from delay_flights where Year>2002                                                                                                 AND Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033714_fdc25dd9-8005-4fde-8f56-a43b06aa5b3e
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    37.924225963706164
+2007    45.252432744291134
+2009    33.585314999939314
+2010    41.331052610239794
+2004    31.662176952308105
+2005    49.490838422749654
+2006    46.838787224801735
+2008    37.22555555408794
+Time taken: 1.239 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((LateAircraftDelay /ArrDelay)*100) from delay_flights where Year>2002                                                                                                 AND Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033717_1736734c-5cab-480b-a786-afad509e04eb
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    37.924225963706164
+2007    45.252432744291134
+2009    33.585314999939314
+2010    41.331052610239794
+2004    31.662176952308105
+2005    49.490838422749654
+2006    46.838787224801735
+2008    37.22555555408794
+Time taken: 0.853 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((LateAircraftDelay /ArrDelay)*100) from delay_flights where Year>2002                                                                                                 AND Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033720_b419ae13-73ae-4fcb-98e7-8008a5b0a5ea
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    37.924225963706164
+2007    45.252432744291134
+2009    33.585314999939314
+2010    41.331052610239794
+2004    31.662176952308105
+2005    49.490838422749654
+2006    46.838787224801735
+2008    37.22555555408794
+Time taken: 0.9 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((LateAircraftDelay /ArrDelay)*100) from delay_flights where Year>2002                                                                                                 AND Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033723_559111a8-ffc4-4d8c-802c-3a69140807e9
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    37.924225963706164
+2007    45.252432744291134
+2009    33.585314999939314
+2010    41.331052610239794
+2004    31.662176952308105
+2005    49.490838422749654
+2006    46.838787224801735
+2008    37.22555555408794
+Time taken: 0.915 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((SecurityDelay /ArrDelay)*100) from delay_flights where Year>2002 AND                                                                                                 Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033803_cead6d1f-7f65-4284-8e41-04aeb830d6ad
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    0.0
+2007    0.22865853658536586
+2009    0.0
+2010    0.0
+2004    0.0
+2005    0.0
+2006    0.0
+2008    0.0
+Time taken: 7.103 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((SecurityDelay /ArrDelay)*100) from delay_flights where Year>2002 AND                                                                                                 Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033814_e85cb930-0969-4edf-85e1-9d9e0513aebe
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    0.0
+2007    0.22865853658536586
+2009    0.0
+2010    0.0
+2004    0.0
+2005    0.0
+2006    0.0
+2008    0.0
+Time taken: 1.201 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((SecurityDelay /ArrDelay)*100) from delay_flights where Year>2002 AND                                                                                                 Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033817_2265a6be-d894-4a7a-bcde-5bf518d7dc0a
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 1(+0)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    0.0
+2007    0.22865853658536586
+2009    0.0
+2010    0.0
+2004    0.0
+2005    0.0
+2006    0.0
+2008    0.0
+Time taken: 1.377 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((SecurityDelay /ArrDelay)*100) from delay_flights where Year>2002 AND                                                                                                 Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033819_943359ca-3aa2-4a92-bd28-f0423de7b3a0
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0/1      Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    0.0
+2007    0.22865853658536586
+2009    0.0
+2010    0.0
+2004    0.0
+2005    0.0
+2006    0.0
+2008    0.0
+Time taken: 1.033 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((SecurityDelay /ArrDelay)*100) from delay_flights where Year>2002 AND                                                                                                 Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033822_a17668c1-7760-41ae-963e-e515139f7b26
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    0.0
+2007    0.22865853658536586
+2009    0.0
+2010    0.0
+2004    0.0
+2005    0.0
+2006    0.0
+2008    0.0
+Time taken: 1.387 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((SecurityDelay /ArrDelay)*100) from delay_flights where Year>2002 AND                                                                                                 Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033825_c2eb5db1-1775-4175-8509-b0a13db7ad7e
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    0.0
+2007    0.22865853658536586
+2009    0.0
+2010    0.0
+2004    0.0
+2005    0.0
+2006    0.0
+2008    0.0
+Time taken: 2.127 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((SecurityDelay /ArrDelay)*100) from delay_flights where Year>2002 AND                                                                                                 Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033832_a9dc68cc-e586-4077-9664-8beff956f771
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 0(+2)/2
+Map 1: 1/1      Reducer 2: 1(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    0.0
+2007    0.22865853658536586
+2009    0.0
+2010    0.0
+2004    0.0
+2005    0.0
+2006    0.0
+2008    0.0
+Time taken: 7.26 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((SecurityDelay /ArrDelay)*100) from delay_flights where Year>2002 AND                                                                                                 Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033846_3bcffe93-803d-409c-b4c5-342e3ea55f7e
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    0.0
+2007    0.22865853658536586
+2009    0.0
+2010    0.0
+2004    0.0
+2005    0.0
+2006    0.0
+2008    0.0
+Time taken: 3.023 seconds, Fetched: 8 row(s)
+hive> SELECT Year, avg((SecurityDelay /ArrDelay)*100) from delay_flights where Year>2002 AND                                                                                                 Year < 2011 GROUP BY Year;
+Query ID = hadoop_20230305033854_f2c67a21-42ac-417b-8f10-deb0ad8dc2d0
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1677983167944_0002)
+
+Map 1: 0(+1)/1  Reducer 2: 0/2
+Map 1: 1/1      Reducer 2: 0(+1)/2
+Map 1: 1/1      Reducer 2: 2/2
+OK
+2003    0.0
+2007    0.22865853658536586
+2009    0.0
+2010    0.0
+2004    0.0
+2005    0.0
+2006    0.0
+2008    0.0
+Time taken: 1.146 seconds, Fetched: 8 row(s)
+hive>

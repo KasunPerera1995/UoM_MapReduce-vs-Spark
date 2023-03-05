@@ -1,0 +1,11 @@
+Initialize Spark using "hive"
+
+The  query 
+
+Queries
+
+1. SELECT Year, avg((CarrierDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year < 2011 GROUP BY Year
+2. SELECT Year, avg((NASDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year < 2011 GROUP BY Year
+3. SELECT Year, avg((WeatherDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year < 2011 GROUP BY Year
+4. SELECT Year, avg((LateAircraftDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year < 2011 GROUP BY Year
+5. SELECT Year, avg((SecurityDelay /ArrDelay)*100) from delay_flights where Year>2002 AND Year < 2011 GROUP BY Year
